@@ -60,4 +60,12 @@ public class ConcurrentHashMapDemo1 {
     log.info("finish size:{}", concurrentHashMap.size());
     return "OK";
   }
+
+  public static void main(String[] args) {
+    try {
+      new ConcurrentHashMapDemo1().wrong();
+    } catch (InterruptedException e) {
+      e.printStackTrace();
+    }
+  }
 }
