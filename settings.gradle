@@ -1,3 +1,5 @@
 rootProject.name = 'restudy-java'
 include 'java-juc'
 include 'java-base'
+include 'java-algorithm'
+
