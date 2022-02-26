@@ -1,2 +1,9 @@
 com/uyibai/juc/ConcurrentHashMapDemo1.java
  com.uyibai.juc.ConcurrentHashMapDemo1
+com/uyibai/juc/VolatileDemo1.java
+ com.uyibai.juc.VolatileDemo1
+com/uyibai/thread/ThreadStopDemo.java
+ com.uyibai.thread.ThreadStopDemo
+ com.uyibai.thread.ThreadStopDemo$1
+com/uyibai/thread/MyThread.java
+ com.uyibai.thread.MyThread
