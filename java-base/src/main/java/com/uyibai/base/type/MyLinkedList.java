@@ -1,4 +1,4 @@
-package com.uyibai.base;
+package com.uyibai.base.type;
 
 public class MyLinkedList {
 
