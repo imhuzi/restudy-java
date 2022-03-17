@@ -1,4 +1,4 @@
-package com.uyibai.base;
+package com.uyibai.base.type;
 
 import java.util.ArrayList;
 

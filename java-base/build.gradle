@@ -2,7 +2,7 @@ plugins {
     id 'java'
 }
 
-group 'org.example'
+group 'com.uyibai'
 version '1.0-SNAPSHOT'
 
 repositories {
@@ -10,6 +10,7 @@ repositories {
 }
 
 dependencies {
+    implementation 'cglib:cglib:3.3.0'
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.6.0'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
 }
