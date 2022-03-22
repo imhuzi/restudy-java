@@ -1,10 +1,13 @@
 package com.uyibai.algorithm;
 
 import com.uyibai.base.type.TreeNode;
+import lombok.extern.slf4j.Slf4j;
 
 import java.util.LinkedList;
+import java.util.List;
 
-public class TreePrint {
+@Slf4j
+public class TreeTraverse {
 
     public static void main(String[] args) {
         TreeNode l3 = new TreeNode(3);
@@ -16,7 +19,9 @@ public class TreePrint {
 
         TreeNode root = new TreeNode(1, l2, l5);
         // 递归遍历
-        traverse(root);
+//        traverse(root);
+        log.info("pre:{}", preOrderTraverse(root));
+        traverseLevel(root, 1);
     }
 
 
@@ -52,4 +57,28 @@ public class TreePrint {
             }
         }
     }
+
+    public static List<Integer> preOrderTraverse(TreeNode root) {
+        LinkedList<Integer> res = new LinkedList<>();
+        if (root == null) {
+            return res;
+        }
+        // 前:
+        res.add(root.getVal());
+        res.addAll(preOrderTraverse(root.getLeft()));
+        // 中
+        res.addAll(preOrderTraverse(root.getRight()));
+        // 后
+        return res;
+    }
+
+    public static void traverseLevel(TreeNode root, int level) {
+        if (root == null) {
+            return;
+        }
+        log.info("节点{} 在 第{} 层", root.getVal(), level);
+        traverseLevel(root.getLeft(), level + 1);
+        traverseLevel(root.getRight(), level + 1);
+    }
+
 }
