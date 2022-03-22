@@ -20,7 +20,8 @@ public class MyThread extends  Thread{
     public static void main(String[] args) throws InterruptedException {
         MyThread myThread = new MyThread();
         myThread.start();
-//        myThread.doStop();
+        Thread.sleep(1000);
+        myThread.doStop();
 //        myThread.join();
     }
 }

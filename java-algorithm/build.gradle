@@ -10,5 +10,8 @@ repositories {
 }
 
 dependencies {
+    // 子模块之间相互依赖
+    implementation project(":java-base")
+//    compile project "java-base"
     testCompile group: 'junit', name: 'junit', version: '4.12'
 }
