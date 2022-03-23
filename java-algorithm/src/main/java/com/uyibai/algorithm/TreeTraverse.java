@@ -6,6 +6,9 @@ import lombok.extern.slf4j.Slf4j;
 import java.util.LinkedList;
 import java.util.List;
 
+/**
+ * 二叉树遍历：前，中，后序 表示的是节点与他的左右子节点遍历打印的先后顺序。
+ */
 @Slf4j
 public class TreeTraverse {
 
@@ -20,8 +23,15 @@ public class TreeTraverse {
         TreeNode root = new TreeNode(1, l2, l5);
         // 递归遍历
 //        traverse(root);
-        log.info("pre:{}", preOrderTraverse(root));
-        traverseLevel(root, 1);
+//        log.info("pre:{}", preOrderTraverse(root));
+//        traverseLevel(root, 1);
+        BinaryTree binaryTree = new BinaryTree();
+        binaryTree.preOrder(root);
+        binaryTree.inOrder(root);
+        binaryTree.postOrder(root);
+
+        log.info("BinaryTreeCount:{}", binaryTree.count(root));
+        log.info("BinaryTreeLevel:{}", binaryTree.levelTraverse(root));
     }
 
 
