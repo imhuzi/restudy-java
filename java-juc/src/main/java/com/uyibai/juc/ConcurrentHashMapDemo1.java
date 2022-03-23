@@ -23,10 +23,10 @@ import lombok.extern.log4j.Log4j2;
 public class ConcurrentHashMapDemo1 {
 
   //线程个数
-  private static int THREAD_COUNT = 10;
+  private static final int THREAD_COUNT = 10;
 
   //总元素数量
-  private static int ITEM_COUNT = 1000;
+  private static final int ITEM_COUNT = 1000;
 
   /**
    * 帮助方法，用来获得一个指定元素数量模拟数据的ConcurrentHashMap
