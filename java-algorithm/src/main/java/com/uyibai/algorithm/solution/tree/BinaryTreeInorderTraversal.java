@@ -54,9 +54,12 @@ public class BinaryTreeInorderTraversal {
             if (root == null) {
                 return res;
             }
+            // 前序位置
             res.addAll(inorderTraversal(root.getLeft()));
+            // 中序位置
             res.add(root.getVal());
             res.addAll(inorderTraversal(root.getRight()));
+            // 后续位置
             return res;
         }
     }

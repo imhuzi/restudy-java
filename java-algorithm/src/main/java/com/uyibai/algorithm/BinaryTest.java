@@ -1,5 +1,7 @@
 package com.uyibai.algorithm;
 
+import java.math.BigInteger;
+
 /**
  * 二进制相关
  *
@@ -32,6 +34,12 @@ public class BinaryTest {
       System.out.print((num & (1 << i)) == 0 ? "0" : "1");
     }
     System.out.println();
+  }
+
+  public static String decimalToBinary(int decimalSource) {
+    BigInteger bi = new BigInteger(String.valueOf(decimalSource));
+    //转换成BigInteger类型，默认是十进制
+    return bi.toString(2); //参数2指定的是转化成二进制
   }
 }
 
