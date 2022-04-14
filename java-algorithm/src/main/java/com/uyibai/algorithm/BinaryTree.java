@@ -75,7 +75,7 @@ public class BinaryTree {
     }
 
     /**
-     * 计算 树的 节点树
+     * 计算 树的 节点树: 每个节点的左右子树各有多少节点？
      *
      * @param tree
      * @return
@@ -91,13 +91,13 @@ public class BinaryTree {
     }
 
     /**
-     * 二叉树 层数
+     * 二叉树 层数: 如果把根节点看做第 1 层，如何打印出每一个节点所在的层数？
      *
      * @param tree
      * @return
      */
     public int levelTraverse(TreeNode tree) {
-        return levelTraverse(tree, 0);
+        return levelTraverse(tree, 1);
     }
 
     private int levelTraverse(TreeNode tree, int level) {
@@ -106,7 +106,7 @@ public class BinaryTree {
         }
         int leftLevel = levelTraverse(tree.getLeft(), level + 1);
         int leftRight = levelTraverse(tree.getRight(), level + 1);
-        return Math.max(leftLevel, leftRight) + 1;
+        return Math.max(leftLevel, leftRight);
     }
 
     /**

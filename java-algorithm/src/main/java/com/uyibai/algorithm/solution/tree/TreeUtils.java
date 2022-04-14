@@ -54,4 +54,32 @@ public class TreeUtils {
 
     return null;
   }
+
+  public static TreeNode createTree(Integer[] arr) {
+    if (arr == null) {
+
+      /**
+       *            1
+       *          /  \
+       *        /     \
+       *      /        \
+       *     2           5
+       *    /  \        /
+       *   3    4      6
+       *              /
+       *             7
+       */
+      TreeNode l3 = new TreeNode(3);
+      TreeNode l4 = new TreeNode(4);
+      TreeNode l7 = new TreeNode(7);
+      TreeNode l6 = new TreeNode(6, l7, null);
+      TreeNode l5 = new TreeNode(5, l6, null);
+      TreeNode l2 = new TreeNode(2, l3, l4);
+
+      TreeNode root = new TreeNode(1, l2, l5);
+      return root;
+    }
+
+    return createTree(arr, arr.length, 0);
+  }
 }

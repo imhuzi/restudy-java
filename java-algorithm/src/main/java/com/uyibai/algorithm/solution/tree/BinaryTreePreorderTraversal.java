@@ -8,7 +8,8 @@ import com.uyibai.base.type.TreeNode;
 import lombok.extern.slf4j.Slf4j;
 
 /**
- * 二叉树前序遍历
+ * 二叉树前序遍历: 一棵二叉树的前序遍历结果 = 根节点 + 左子树的前序遍历结果 + 右子树的前序遍历结果。
+ *
  * https://leetcode-cn.com/problems/binary-tree-preorder-traversal/
  *
  * @author : Hui.Wang [huzi.wh@gmail.com]

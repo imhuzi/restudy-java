@@ -13,6 +13,17 @@ import java.util.List;
 public class TreeTraverse {
 
     public static void main(String[] args) {
+        /**
+         *            1
+         *          /  \
+         *        /     \
+         *      /        \
+         *     2           5
+         *    /  \        /
+         *   3    4      6
+         *              /
+         *             7
+         */
         TreeNode l3 = new TreeNode(3);
         TreeNode l4 = new TreeNode(4);
         TreeNode l7 = new TreeNode(7);
