@@ -15,7 +15,7 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class On2SortUtils {
   public static void main(String[] args) {
-    int[] arr = new int[] {2, 1, 6, 5, 12, 3, 1, 3, 78, 4, 7, 90};
+    int[] arr = new int[] {2, 1, 6, 5, 12, 3, 1, 3, 78, 4, 90, 7};
 //    Arrays.sort(arr);
 //    log.info("Arrays.sort:{}", arr);
 //    bubbleSort(arr);
@@ -60,12 +60,12 @@ public class On2SortUtils {
     if (arr != null && arr.length > 1) {
       int size = arr.length;
       // 从数组的第二个元素开始,循环将数组中的元素插入
-      for (int i = 1; i < size; i++) {
+      for (int i = 1; i < size; ++i) {
         int value = arr[i]; // 设置数组中第二个元素为第一次要插入的数据
         // 将数组分为两个区域，初始值:第一个数组元素
         int j = i - 1;
         // 查找插入位置
-        for (; j >= 0; ++j) {
+        for (; j >= 0; --j) {
 
           if (arr[j] > value) {
             // 数据移动:要插入的元素小于 第j个，就向后移动,
