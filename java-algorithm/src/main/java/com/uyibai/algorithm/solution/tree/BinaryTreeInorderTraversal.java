@@ -36,12 +36,12 @@ public class BinaryTreeInorderTraversal {
 
         TreeNode root = new TreeNode(1, l2, l5);
         // [3, 2, 4, 1, 7, 6, 5]
-        log.info("Solution:{}", new Solution().inorderTraversal(root));
+        log.info("Solution:{}", new Solution().inorderTraversal2(root));
         ;
     }
 
     static class Solution {
-
+        List<Integer> res = new ArrayList<>();
         /**
          * 动态规划思路
          * 定义：输入一个节点，返回该节点为根的二叉树的中序遍历
@@ -62,5 +62,23 @@ public class BinaryTreeInorderTraversal {
             // 后续位置
             return res;
         }
+
+        public List<Integer> inorderTraversal2(TreeNode root) {
+            traversal(root);
+            return res;
+        }
+        public void traversal(TreeNode root) {
+            if (root == null) {
+                return ;
+            }
+            // 前序位置
+            traversal(root.getLeft());
+            // 中序位置
+            res.add(root.getVal());
+            traversal(root.getRight());
+            // 后续位置
+        }
+
+
     }
 }
