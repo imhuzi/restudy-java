@@ -1,22 +1,23 @@
 package com.uyibai.base.type;
 
 import lombok.Data;
+import lombok.val;
 
 /**
  * 2叉树
  */
 @Data
 public class TreeNode {
-    int val;
+    Integer val;
     TreeNode left, right;
 
-    public TreeNode(int val, TreeNode left, TreeNode right) {
+    public TreeNode(Integer val, TreeNode left, TreeNode right) {
         this.val = val;
         this.left = left;
         this.right = right;
     }
 
-    public TreeNode(int val) {
+    public TreeNode(Integer val) {
         this.val = val;
     }
 
