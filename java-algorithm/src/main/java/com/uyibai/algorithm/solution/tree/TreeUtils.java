@@ -20,16 +20,31 @@ public class TreeUtils {
   /**
    * 二叉树顺序存储 转为 链式存储
    *
+   *
+   * 用一维数组存储二叉树中的结点，并且结点的存储位置，也就是数组的下标要能体现结点之间的逻辑关系
+   * 方案1：
+   * 已知双亲结点为i: 左孩子的结点为（2i+1）,右孩子的结点为（2i+2）
+   * 已知孩子结点为i: 双亲结点为：（i-1）/2
+   * 方案2：arr[0] 会浪费掉，不存储内容
+   * 已知双亲结点为i: 左孩子的结点为（2i）,右孩子的结点为（2i+1）
+   * 已知孩子结点为i: 双亲结点为：i/2
+   *
    * @param arr 数组
    * @param n  树的节点
    * @param pos 数组下标
    * @return 树
    */
-  public static TreeNode createTree(int[] arr, int n, int pos) {
+  public static TreeNode createTree(Integer[] arr, int n, int pos) {
     if (arr != null && pos < n) {
       TreeNode node = new TreeNode(arr[pos]);
-      node.setLeft(createTree(arr, n, pos * 2));
-      node.setRight(createTree(arr, n, pos * 2 + 1));
+      int nextLeftPos = pos * 2 + 1;
+      if (nextLeftPos < n && arr[nextLeftPos] != null) {
+        node.setLeft(createTree(arr, n, nextLeftPos));
+      }
+      int nextRightPos = pos * 2 + 2;
+      if (nextRightPos < n && arr[nextRightPos] != null) {
+        node.setRight(createTree(arr, n, nextRightPos));
+      }
       return node;
     }
     return null;
