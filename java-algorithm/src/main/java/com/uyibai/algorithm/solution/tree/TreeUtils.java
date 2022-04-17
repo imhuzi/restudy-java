@@ -1,6 +1,11 @@
 package com.uyibai.algorithm.solution.tree;
 
+import java.util.LinkedList;
+import java.util.List;
+
 import com.uyibai.base.type.TreeNode;
+
+import lombok.extern.slf4j.Slf4j;
 
 
 /**
@@ -16,7 +21,22 @@ import com.uyibai.base.type.TreeNode;
  * @version : 1.0
  * @date  : 2022/4/12
  */
+@Slf4j
 public class TreeUtils {
+  /**
+   * 遍历类型:前序
+   */
+  private static final int TRAVERSE_TYPE_PRE = 1;
+  /**
+   * 遍历类型:中序
+   */
+  private static final int TRAVERSE_TYPE_IN = 2;
+  /**
+   * 遍历类型:后续
+   */
+  private static final int TRAVERSE_TYPE_POST = 3;
+
+
   /**
    * 二叉树顺序存储 转为 链式存储
    *
@@ -82,4 +102,67 @@ public class TreeUtils {
 
     return createTree(arr, arr.length, 0);
   }
+
+  /**
+   * 前序遍历
+   */
+  public static List<Integer> preOrder(TreeNode tree) {
+    List<Integer> res = traverse(tree, TRAVERSE_TYPE_PRE);
+    log.info("preOrder:{}", res);
+    return res;
+  }
+
+  /**
+   * 中序遍历
+   */
+  public static List<Integer> inOrder(TreeNode tree) {
+    List<Integer> res = traverse(tree, TRAVERSE_TYPE_IN);
+    log.info("inOrder:{}", res);
+    return res;
+  }
+
+  /**
+   * 后续遍历
+   */
+  public static List<Integer> postOrder(TreeNode tree) {
+    List<Integer> res = traverse(tree, TRAVERSE_TYPE_POST);
+    log.info("postOrder:{}", res);
+    return res;
+  }
+
+
+  /**
+   * 内部 遍历结构
+   *
+   * @param node
+   * @param orderType
+   * @return
+   */
+  private static List<Integer> traverse(TreeNode node, int orderType) {
+    LinkedList<Integer> res = new LinkedList<>();
+    if (node == null) {
+      return res;
+    }
+
+    // 前序
+    if (orderType == TRAVERSE_TYPE_PRE) {
+//            System.out.println("preOrder:" + node.getVal());
+      res.add(node.getVal());
+    }
+    res.addAll(traverse(node.getLeft(), orderType));
+    // 中序
+    if (orderType == TRAVERSE_TYPE_IN) {
+//            System.out.println("inOrder:" + node.getVal());
+      res.add(node.getVal());
+    }
+    res.addAll(traverse(node.getRight(), orderType));
+    // 后序
+    if (orderType == TRAVERSE_TYPE_POST) {
+//            System.out.println("afterOrder:" + node.getVal());
+      res.add(node.getVal());
+    }
+
+    return res;
+  }
+
 }
